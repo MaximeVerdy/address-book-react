@@ -12,7 +12,7 @@ const App: React.FC = () => {
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
-  };
+  }; 
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
