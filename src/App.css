@@ -1,38 +1,123 @@
-.App {
-  text-align: center;
+.app {
+    font-family: Arial, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px calc(2px + 10vw);
+    background-color: #f5f5f5;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1 {
+    font-size: min(32px, calc(10px + 2.2vw));
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+header h1 {
+    text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+input[type="search"] {
+    padding: 5px;
+    margin: 0 10px;
+    border-radius: 5px;
+    border: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #42a049;
+    cursor: pointer;
+}
+
+main ul {
+    list-style: none;
+    padding: 0px calc(2px + 10vw);
+}
+
+main li {
+    font-size: calc(10px + 0.5vw);
+    padding: calc(2px + 0.2vw) 0;
+    border-bottom: 1px solid #ddd;
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 2fr 3fr 40px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background: none;
+}
+
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+
+@media screen and (max-width: 450px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    header input[type="search"],
+    header button {
+        margin-top: 6px;
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    main li {
+        grid-template-columns: 1fr 1.5fr 40px;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            "firstname phone delete-button"
+            "lastname email delete-button"
+            "lastname address delete-button"
+    }
+    .firstname {
+        grid-area: firstname;
+    }
+    .lastname {
+        grid-area: lastname;
+    }
+    .phone {
+        grid-area: phone;
+    }
+    .email {
+        grid-area: email;
+    }
+    .address {
+        grid-area: address;
+    }
+    .delete-button {
+        grid-area: delete-button;
+    }
 }
