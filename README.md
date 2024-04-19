@@ -1,3 +1,5 @@
+![sreenshot](./public/demo.gif)
+
 ### Enoncé de l'exercice
 
 Crée une mini-application de carnet d'adresses utilisant ReactJs et Typescript. L'application permettra à l'utilisateur d'ajouter, supprimer, et visualiser des contacts. Chaque contact devra comprendre au minimum un nom, un numéro de téléphone, et une adresse email. 
