@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import './App.css';
 import ContactForm from './components/ContactForm';
@@ -33,7 +33,7 @@ const App: React.FC = () => {
     setContacts(updatedContacts);
   };
 
-  const filterContacts = (contacts: ContactType[]) => {
+  const filterContacts = useMemo(() => {
     return contacts.filter((contact: ContactType) => {
       const searchLower = searchTerm.toLowerCase();
       return (
@@ -44,7 +44,7 @@ const App: React.FC = () => {
         contact.address.toLowerCase().includes(searchLower)
       );
     }).sort((a: ContactType, b: ContactType) => a.firstname.localeCompare(b.firstname));
-  };
+  }, [contacts, searchTerm]);
   
 
 
@@ -66,7 +66,7 @@ const App: React.FC = () => {
       <main>
         <ul aria-labelledby="contact-list-heading">
           <h2 id="contact-list-heading" className="visually-hidden">Contacts List</h2>
-          {filterContacts(contacts).sort((a, b) => a.firstname.localeCompare(b.firstname)).map((contact) => (
+          {filterContacts.map((contact:ContactType) => (
             <li key={contact.id} className="contact-grid" data-testid={`contact-${contact.id}`}>
               <div className="firstname" data-testid="firstname">{contact.firstname}</div>
               <div className="lastname">{contact.lastname}</div>

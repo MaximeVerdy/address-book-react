@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './ContactForm.css';
 import { ContactType } from '../utils/types';
 interface NewContactProps {
